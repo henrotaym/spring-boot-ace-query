@@ -5,11 +5,14 @@ import henrotaym.env.database.factories.EntityFactory;
 import henrotaym.env.database.factories.PlayerFactory;
 import henrotaym.env.entities.Player;
 import henrotaym.env.entities.QPlayer;
+import henrotaym.env.enums.ProfileName;
 import lombok.RequiredArgsConstructor;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
+import org.springframework.stereotype.Component;
 
-@Configuration
 @RequiredArgsConstructor
+@Profile(ProfileName.SEEDER)
+@Component
 public class PlayerSeeder extends EntitySeeder<Player> {
   private final PlayerFactory playerFactory;
   private final JPAQueryFactory jpaQueryFactory;
@@ -21,7 +24,7 @@ public class PlayerSeeder extends EntitySeeder<Player> {
   }
 
   @Override
-  protected Player seed(Integer index) {
+  protected Player row(Integer index) {
 
     return this.getFactory().create(player -> player.setRanking(index + 1 + this.getMinimalRank()));
   }
