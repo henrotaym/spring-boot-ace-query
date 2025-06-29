@@ -1,10 +1,7 @@
 package henrotaym.env.database.seeders;
 
 import henrotaym.env.database.factories.EntityFactory;
-import henrotaym.env.enums.ProfileName;
-import org.springframework.context.annotation.Profile;
 
-@Profile(ProfileName.SEEDER)
 public abstract class EntitySeeder<T> {
   protected abstract EntityFactory<T> getFactory();
 
