@@ -1,0 +1,9 @@
+POST http://app:8080/api/players
+Content-Type: application/json
+
+{
+    "name": "Jannik Sinner",
+    "nationality": "italian",
+    "birthDate": "2001-08-16",
+    "ranking": 1
+}
